@@ -23,33 +23,31 @@
   sine functions are chosen as bases for the decomposition as they represent
   wave adjustment in the vertical. This method assumes variable relaxation time
   with hight. 
-=====================================================
-=====================================================
+
+ ---------------------------------------------------
  REMEMBER: 1 is top layer, km is the lowest layer    
-=====================================================
-=====================================================
+---------------------------------------------------
 
 
-==================================
- Weak Temperature Gradient (WTG): 
+
+# Weak Temperature Gradient (WTG): 
 
   W*dtheta_ref/dz  = (theta - theta_ref) /tau
  
   In the PBL:
   W = interpolation from above PBL to zero at the surface
-===========================================================
 
 
-============================
- Damped Gravity Waves: DGW  
-============================
+# Damped Gravity Waves: DGW  
 
+```
  d^2W/d^2Z = const*(T_v - T_v_ref)/T = RHS
 
  (1/dz) * W_k-1  - (2/dz) * W_k + (1/dz) * W_k+1 = RHS* dz
       W_k-1  -2* W_k +  W_k+1 = RHS* dz*dz =D
+      ```
  or:
- 
+ ```
  B*W = D
 
               | -2  1  0  0 0 . . .  0 |
@@ -60,9 +58,9 @@
               |  0  0  0  0 . .0  1 -2 |
 
  a = -2 ; b=c= 1
-
+```
  Construction of L and U:
- 
+``` 
  L = 
 
       |1  0  0  0 . . . . 0|
@@ -79,17 +77,16 @@
        |0   0   0   .f_n-1  b_n-1|
        |0   0   0  . .  .    fn  |
 
-
+```
+```
  Now: BW=D  ==> (LU)W=D ==> L(UW)=D
       Ly = D ...(1) solve for y
       UW = y ...(2) solve for W
-=============================================================================
-=============================================================================
+      ```
 
 
-============================
- Spectral WTG: SWTG         
-============================
+# Spectral WTG: SWTG         
+
  A- loop on vertical levels k:
  1- calculate: d_theta_dz 
  2- calculate theta_W = (theta_avg-theta_ref)/d_theta_dz
@@ -107,5 +104,3 @@
   - calculate W_Largescale by summing over dummy j
 
 
-=============================================================================
-=============================================================================
