@@ -24,19 +24,17 @@
   wave adjustment in the vertical. This method assumes variable relaxation time
   with hight. 
 
- ---------------------------------------------------
  REMEMBER: 1 is top layer, km is the lowest layer    
----------------------------------------------------
-
 
 
 # Weak Temperature Gradient (WTG): 
 
+```
   W*dtheta_ref/dz  = (theta - theta_ref) /tau
  
   In the PBL:
   W = interpolation from above PBL to zero at the surface
-
+```
 
 # Damped Gravity Waves: DGW  
 
@@ -45,8 +43,10 @@
 
  (1/dz) * W_k-1  - (2/dz) * W_k + (1/dz) * W_k+1 = RHS* dz
       W_k-1  -2* W_k +  W_k+1 = RHS* dz*dz =D
-      ```
+ ```
+ 
  or:
+ 
  ```
  B*W = D
 
@@ -77,12 +77,10 @@
        |0   0   0   .f_n-1  b_n-1|
        |0   0   0  . .  .    fn  |
 
-```
-```
  Now: BW=D  ==> (LU)W=D ==> L(UW)=D
       Ly = D ...(1) solve for y
       UW = y ...(2) solve for W
-      ```
+ ```
 
 
 # Spectral WTG: SWTG         
